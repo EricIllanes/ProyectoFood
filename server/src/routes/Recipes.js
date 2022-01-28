@@ -23,21 +23,27 @@ if(name) {
 })
 https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
 */
+
 router.get("/recipes", async (req, res, next) => {
     try {
         const { name } = req.query
-        console.log(2222222222222222, name)
-        let recipesAPI = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=${API_KEY}`)
+        let recipesAPI = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${name}&number=100&addRecipeInformation=true&apiKey=${API_KEY}`)
+
         let recipesDB = await Recipes.findAll({
             where: {
                 name: {
                     [Op.iLike]: "%" + name + "%"
                 },
+
             },
+            include: [{
+                model: Diets,
+                through: { attributes: [] }    // investigar
+            }],
             order: [["name", "ASC"]]
 
         })
-        console.log(1111111111111111111111111111, recipesDB)
+
         let filteredRecipesAPI = recipesAPI.data.results    //data es por axios
         let allRecipes = [...filteredRecipesAPI, ...recipesDB]
         res.send(allRecipes)
@@ -47,6 +53,47 @@ router.get("/recipes", async (req, res, next) => {
     }
 
 })
+/*
+router.get("/recipes", async (req, res, next) => {
+    try {
+        const { name } = req.query
+
+        let n = 0
+        let m = 0
+        let resultados = []
+        while (n < 11) {
+            let recipesAPI = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${name}&offset=${m}&addRecipeInformation=true&apiKey=${API_KEY}`)
+
+            resultados.push(...recipesAPI.data.results)
+            n++
+            m = m + 10
+
+        }
+        let recipesDB = await Recipes.findAll({
+            where: {
+                name: {
+                    [Op.iLike]: "%" + name + "%"
+                },
+
+            },
+            include: [{
+                model: Diets,
+                through: { attributes: [] }    // investigar
+            }],
+            order: [["name", "ASC"]]
+
+        })
+
+        // let filteredRecipesAPI = recipesAPI.data.results    //data es por axios
+        let allRecipes = [...resultados, ...recipesDB]
+        res.send(allRecipes)
+    } catch (error) {
+
+        next(error)
+    }
+
+})
+*/
 
 
 router.get("/recipes/:id", async (req, res, next) => {
@@ -84,7 +131,7 @@ router.post("/recipe", async (req, res, next) => {
                 name: diets
             }
         })
-        console.log(diet)
+
         const newRecipes = await Recipes.create({
             name, resume, score, level, steps, image
         })
@@ -98,13 +145,3 @@ router.post("/recipe", async (req, res, next) => {
 })
 
 module.exports = router;
-
-
-/*
-git remote add origin https://github.com/EricIllanes/ProyectoIndividual.git
-git branch -M main
-git push -u origin main
-
-
-git remote https://github.com/EricIllanes/PI---Food.git origin https://github.com/EricIllanes/ProyectoIndividual.git 
-*/
