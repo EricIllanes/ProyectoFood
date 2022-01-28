@@ -10,17 +10,16 @@ import Recipes from './components/Recipes/Recipes';
 function App() {
   return (
     <div className="App">
-      <Recipes />
-      {/* <React.Fragment>
+      <React.Fragment>
         <Router>
           <NavBar />
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
-            <Route path="/home" element={<SearchRecipe />} />
+            <Route path="/home" element={<SearchRecipe />, <Recipes />} />
             <Route path="/createrecipe" element={<CreatedRecipe />} />
           </Routes>
         </Router>
-      </React.Fragment> */}
+      </React.Fragment>
     </div>
   );
 }
