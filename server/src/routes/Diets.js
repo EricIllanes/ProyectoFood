@@ -21,9 +21,9 @@ router.get("/types", async (req, res, next) => {
 router.post("/diets", async (req, res, next) => {
 
     try {
-        const { name } = req.body
+        const { title } = req.body
         const newDiets = await Diets.create({
-            name
+            title
         })
         res.send(newDiets)
 

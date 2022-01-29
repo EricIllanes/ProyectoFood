@@ -1,0 +1,13 @@
+.cards {
+    border-radius: 10px;
+    border: 2px solid rgb(170, 164, 175);
+    background-color: rgb(254, 241, 248);
+    width:500px;
+    display:flex;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    align-items: center;
+    text-align: center;
+    flex-direction:column;
+    justify-content: center;
+}

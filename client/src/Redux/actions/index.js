@@ -1,10 +1,11 @@
 import axios from "axios"
+import Order from "../../components/orderRecipes/orderRecipes"
 
 export const SEARCH_RECIPE = "SEARCH_RECIPE"
 export const CREATE_RECIPE = "CREATE_RECIPE"
 export const FILTERED_RECIPES = "FILTERED_RECIPES"
 export const GET_RECIPES = "GET_RECIPES"
-
+export const ORDER = "ORDER"
 
 export function getRecipes() {
     return function (dispatch) {
@@ -23,10 +24,27 @@ export function getRecipes() {
     }
 }
 
-export function searchRecipe(payload) {
+export function searchRecipe(search) {
+    return function (dispatch) {
+        axios.get("http://localhost:3001/api/recipes/recipes?title=" + search)
+            .then((recipes) => {
+                dispatch({
+                    type: SEARCH_RECIPE,
+                    payload: recipes.data
+
+                }
+                )
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+}
+
+export function orderRecipes(order) {
     return {
-        type: SEARCH_RECIPE,
-        payload: payload
+        type: ORDER,
+        payload: order
     }
 }
 

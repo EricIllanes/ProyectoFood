@@ -6,6 +6,7 @@ import SearchRecipe from './components/searchRecipe/searchRecipe';
 import CreatedRecipe from './components/createRecipe/createRecipe';
 import NavBar from './components/navBar/navBar';
 import Recipes from './components/Recipes/Recipes';
+import Order from './components/orderRecipes/orderRecipes';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
-            <Route path="/home" element={<SearchRecipe />, <Recipes />} />
+            <Route path="/home" element={<SearchRecipe />} />
             <Route path="/createrecipe" element={<CreatedRecipe />} />
           </Routes>
         </Router>

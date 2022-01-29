@@ -10,29 +10,17 @@ const API_KEY = process.env.API_KEY
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-/*
-
-router.get("/recipes", (req,res,next) =>{
-let name = req.query.name
-let recipesPromAPI = axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`)
-let recipesPromDB = Recipes.findAll({
-if(name) {
-
-// EAT ENJOY ___ AND REPEAT
-}
-})
-https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
-*/
 
 router.get("/recipes", async (req, res, next) => {
     try {
-        const { name } = req.query
-        let recipesAPI = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${name}&number=100&addRecipeInformation=true&apiKey=${API_KEY}`)
+        const { title } = req.query
 
+        let recipesAPI = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title}&number=100&addRecipeInformation=true&apiKey=${API_KEY}`)
         let recipesDB = await Recipes.findAll({
+
             where: {
-                name: {
-                    [Op.iLike]: "%" + name + "%"
+                title: {
+                    [Op.iLike]: "%" + title + "%"
                 },
 
             },
@@ -40,12 +28,13 @@ router.get("/recipes", async (req, res, next) => {
                 model: Diets,
                 through: { attributes: [] }    // investigar
             }],
-            order: [["name", "ASC"]]
+            order: [["title", "ASC"]]
 
         })
 
         let filteredRecipesAPI = recipesAPI.data.results    //data es por axios
         let allRecipes = [...filteredRecipesAPI, ...recipesDB]
+
         res.send(allRecipes)
     } catch (error) {
 
@@ -125,18 +114,24 @@ router.get("/recipes/:id", async (req, res, next) => {
 
 router.post("/recipe", async (req, res, next) => {
     try {
-        const { name, resume, score, level, steps, image, diets } = req.body
-        const diet = await Diets.findOne({
+        const { title, resume, score, level, steps, image, diets } = req.body
+        const diet = await Diets.findAll({
             where: {
-                name: diets
+                // title: [vegan, vegetarian, paleo]
+                title: diets
             }
         })
+        console.log(55555, diet)
 
         const newRecipes = await Recipes.create({
-            name, resume, score, level, steps, image
+            title, resume, score, level, steps, image
         })
 
-        await newRecipes.addDiets(diet.id)
+
+        diet.forEach(async (e) => {
+            await newRecipes.addDiets(e.id)
+        })
+
         res.send(newRecipes)
 
     } catch (error) {
