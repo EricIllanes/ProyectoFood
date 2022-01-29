@@ -1,10 +1,15 @@
+import "./landing.css"
 import { Link } from "react-router-dom"
 
 function LandingPage() {
     return (
-        <div>
-            <h1>"EAT, ENJOY... REPEAT"</h1>
-            <Link to="/home" ><button className="entrar">ENTRAR</button></Link>
+        <div className="landing">
+            <div>
+                <h1 className="titulolanding">EAT, ENJOY... REPEAT</h1>
+                <Link to="/home" ><button className="botonlanding">ENTRAR</button></Link>
+
+            </div>
+
         </div>
     )
 }

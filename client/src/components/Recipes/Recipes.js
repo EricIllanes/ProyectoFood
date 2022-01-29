@@ -12,7 +12,6 @@
 //     // useEffect(() => {   //permite ejecutar una función cuando el ciclo de vida recién comienza
 //     // dispatch(getRecipes())
 //     // }, [])
-//     console.log(recipes)
 //     return (
 //         <div>
 

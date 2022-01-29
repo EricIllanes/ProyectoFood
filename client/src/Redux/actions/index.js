@@ -6,6 +6,7 @@ export const CREATE_RECIPE = "CREATE_RECIPE"
 export const FILTERED_RECIPES = "FILTERED_RECIPES"
 export const GET_RECIPES = "GET_RECIPES"
 export const ORDER = "ORDER"
+export const DETAIL_RECIPES = "DETAIL_RECIPES"
 
 export function getRecipes() {
     return function (dispatch) {
@@ -61,3 +62,13 @@ export function createRecipe(payload) {
         payload: payload
     }
 }
+
+// export function detailRecipes(id) {
+//     axios.get("http://localhost:3001/api/recipes/recipes/" + id)
+//         .then((details) => {
+//             dispatch({
+//                 type: DETAIL_RECIPES,
+//                 payload: details.data
+//             })
+//         })
+// }

@@ -1,0 +1,25 @@
+.landing{
+/* background-image: url("https://image.freepik.com/foto-gratis/cubiertos-oro-textil-placa-sobre-fondo-oscuro-vista-superior_1220-6580.jpg"); */
+background-image: url("https://images.pexels.com/photos/6305/holidays-dinner-eating-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: center;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: cover;
+min-height: 100vh;
+min-width: 100vh;
+}
+.titulolanding{
+    font-size: 100px;
+}
+.botonlanding{
+ background-color: gray;
+
+}
+.botonlanding:hover{
+  
+    transition: 400ms;
+    opacity: 80%;
+}

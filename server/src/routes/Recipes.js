@@ -121,7 +121,6 @@ router.post("/recipe", async (req, res, next) => {
                 title: diets
             }
         })
-        console.log(55555, diet)
 
         const newRecipes = await Recipes.create({
             title, resume, score, level, steps, image

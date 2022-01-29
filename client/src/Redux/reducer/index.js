@@ -1,5 +1,5 @@
 import { ASCENDENTE, DESCENDENTE } from "../../components/orderRecipes/orderRecipes"
-import { SEARCH_RECIPE, FILTERED_RECIPES, CREATE_RECIPE, GET_RECIPES, ORDER } from "../actions"
+import { SEARCH_RECIPE, FILTERED_RECIPES, CREATE_RECIPE, GET_RECIPES, ORDER, DETAIL_RECIPES } from "../actions"
 const initialState = {
     recipes: [],
     filteredRecipes: [],
@@ -46,6 +46,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 recipes: orderedRecipes
+            }
+        case DETAIL_RECIPES:
+            return {
+                ...state,
+                recipes: action.payload
             }
         default:
             return state

@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getRecipes, searchRecipe } from "../../Redux/actions"
+import DetailRecipe from "../detailsRecipe/detailRecipe"
+import NavBar from "../navBar/navBar"
 import Order from "../orderRecipes/orderRecipes"
 import Recipe from "../recipe/recipe"
 import "./searchRecipe.css"
 
 function SearchRecipe() {
     const { recipes } = useSelector((state) => state)
-    console.log(recipes)
     const [search, setSearch] = useState("")
     const dispatch = useDispatch()
 
@@ -21,6 +22,7 @@ function SearchRecipe() {
 
     return (
         <div>
+            {NavBar()}
             <h1>¿Qué deseas comer hoy?</h1>
             <input
                 type="text"
@@ -43,7 +45,7 @@ function SearchRecipe() {
                 {recipes.map((recipe, index) => {
                     return (
                         <div className="cards">
-                            <Recipe title={recipe.title} image={recipe.image} />
+                            <Recipe id={recipe.id} title={recipe.title} image={recipe.image} />
                         </div>)
                 }
                 )}
@@ -55,3 +57,8 @@ function SearchRecipe() {
 }
 
 export default SearchRecipe
+
+
+/*
+para mostrar la dieta, poner condicional si array contiene string que haga tal cosa si no que haga otra cosa
+*/
