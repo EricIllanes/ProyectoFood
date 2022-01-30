@@ -8,6 +8,7 @@ function LandingPage() {
                 <h1 className="titulolanding">EAT, ENJOY... REPEAT</h1>
                 <Link to="/home" ><button className="botonlanding">ENTRAR</button></Link>
 
+
             </div>
 
         </div>

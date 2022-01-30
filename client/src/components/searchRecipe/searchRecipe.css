@@ -14,11 +14,11 @@
     text-align: center;
     flex-direction:column;
     justify-content: center;
+    margin: 20px auto           /* margin de 20px por arriba y por abajo y otorga el mismo en ambos lados*/
 }
 
 .imbg{
-   
-    opacity: 0.55;
+    opacity: 0.5;
     position: absolute;
     left: 0;
     top: 0;
