@@ -3,8 +3,9 @@ import { SEARCH_RECIPE, FILTERED_RECIPES, CREATE_RECIPE, GET_RECIPES, ORDER, DET
 const initialState = {
     recipes: [],
     filteredRecipes: [],
-    createrecipes: [],
-    ordered: []
+    createRecipes: [],
+    ordered: [],
+    detailsRecipe: []
 }
 
 
@@ -29,7 +30,7 @@ function rootReducer(state = initialState, action) {
         case CREATE_RECIPE:
             return {
                 ...state,
-                createrecipes: action.payload
+                createRecipes: action.payload
             }
         case ORDER:
             let orderedRecipes = [...state.recipes]
@@ -50,7 +51,7 @@ function rootReducer(state = initialState, action) {
         case DETAIL_RECIPES:
             return {
                 ...state,
-                recipes: action.payload
+                detailsRecipe: action.payload
             }
         default:
             return state

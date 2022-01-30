@@ -1,3 +1,7 @@
+
+
+
+
 .cards {
     border-radius: 10px;
     border: 2px solid rgb(170, 164, 175);
@@ -10,4 +14,17 @@
     text-align: center;
     flex-direction:column;
     justify-content: center;
+}
+
+.imbg{
+   
+    opacity: 0.55;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto; 
+}
+.background {
+    opacity: 1;
 }

@@ -63,12 +63,20 @@ export function createRecipe(payload) {
     }
 }
 
-// export function detailRecipes(id) {
-//     axios.get("http://localhost:3001/api/recipes/recipes/" + id)
-//         .then((details) => {
-//             dispatch({
-//                 type: DETAIL_RECIPES,
-//                 payload: details.data
-//             })
-//         })
-// }
+export function detailRecipes(id) {
+    try {
+        return async function (dispatch) {
+            axios.get("http://localhost:3001/api/recipes/recipes/" + id)
+                .then((details) => {
+                    dispatch({
+                        type: DETAIL_RECIPES,
+                        payload: details.data
+                    })
+                })
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}

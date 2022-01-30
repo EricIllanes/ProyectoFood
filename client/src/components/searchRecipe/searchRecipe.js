@@ -20,8 +20,10 @@ function SearchRecipe() {
 
 
 
-    return (
-        <div>
+    return (<div>
+        {/* <img className="imbg" src="https://images.pexels.com/photos/4226876/pexels-photo-4226876.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="image" /> */}
+        <div className="background">
+
             {NavBar()}
             <h1>¿Qué deseas comer hoy?</h1>
             <input
@@ -45,15 +47,13 @@ function SearchRecipe() {
                 {recipes.map((recipe, index) => {
                     return (
                         <div className="cards">
-                            <Recipe id={recipe.id} title={recipe.title} image={recipe.image} />
+                            <Recipe id={recipe.id} title={recipe.title} image={recipe.image} dishTypes={recipe.dishTypes} />
                         </div>)
                 }
                 )}
-
             </div>
-
         </div >
-    )
+    </div>)
 }
 
 export default SearchRecipe
