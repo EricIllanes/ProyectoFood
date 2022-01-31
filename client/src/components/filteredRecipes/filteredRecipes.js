@@ -1,5 +1,12 @@
 
+
+
 export default function FilteredRecipes() {
+
+    function handleFilterRecipes(event) {
+
+    }
+
     return (<div>
         <div>
             <label>Dietas:</label>
