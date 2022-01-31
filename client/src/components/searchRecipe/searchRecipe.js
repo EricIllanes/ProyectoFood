@@ -54,7 +54,7 @@ function SearchRecipe() {
                         return (
                             <div key={index} className="cards">
                                 <Recipe id={recipe.id} title={recipe.title} image={recipe.image} dishTypes={recipe.dishTypes} diets={
-                                    recipe.diets && (typeof recipe.diets[0] === "string" ? recipe.diets : recipe.diets.map((e) => e.title) + "")
+                                    recipe.diets && (typeof recipe.diets[0] === "string" ? recipe.diets + "" : recipe.diets.map((e) => e.title) + "")
                                 } />
                             </div>)
                     }
