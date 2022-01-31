@@ -49,10 +49,10 @@ export function orderRecipes(order) {
     }
 }
 
-export function filteredRecipe(index) {
+export function filteredRecipe(payload) {
     return {
         type: FILTERED_RECIPES,
-        payload: index
+        payload
     }
 }
 

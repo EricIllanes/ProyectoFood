@@ -1,93 +1,37 @@
+import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { filteredRecipe } from "../../Redux/actions"
 
 
 
 export default function FilteredRecipes() {
+    const [filters, setFilters] = useState()
+    const dispatch = useDispatch()
+
+
 
     function handleFilterRecipes(event) {
+        dispatch(filteredRecipe(event.target.value))
 
     }
 
     return (<div>
-        <div>
-            <label>Dietas:</label>
-            <label><input
-                type="checkbox"
-                name="gluten free"
-                value="gluten free"
-            />
-                GlutenFree </label>
+        <select onChange={event => handleFilterRecipes(event)}>
+            <option value="gluten free">gluten free</option>
+            <option value="ketogenic">ketogenic</option>
+            <option value="vegetarian">vegetarian</option>
+            <option value="lacto-vegetarian">lacto-vegetarian</option>
+            <option value="ovo-vegetarian">ovo-vegetarian</option>
+            <option value="vegan">vegan</option>
+            <option value="pescetarian">pescetarian</option>
+            <option value="paleo">paleo</option>
+            <option value="primal">primal</option>
+            <option value="low fodmap">"low fodmap"</option>
+            <option value="whole30"> "whole30"</option>
 
-            <label><input
-                type="checkbox"
-                name="ketogenic"
-                value="ketogenic"
-            />
-                Ketogenic </label>
+        </select>
 
-            <label><input
-                type="checkbox"
-                name="vegetarian"
-                value="vegetarian"
-            />
-                Vegetarian </label>
 
-            <label><input
-                type="checkbox"
-                name="lacto-vegetarian"
-                value="lacto-vegetarian"
-            />
-                Lacto-Vegetarian </label>
-
-            <label><input
-                type="checkbox"
-                name="ovo-vegetarian"
-                value="ovo-vegetarian"
-            />
-                Ovo-Vegetarian </label>
-
-            <label><input
-                type="checkbox"
-                name="vegan"
-                value="vegan"
-            />
-                Vegan </label>
-
-            <label><input
-                type="checkbox"
-                name="pescetarian"
-                value="pescetarian"
-            />
-                Pescetarian </label>
-
-            <label><input
-                type="checkbox"
-                name="paleo"
-                value="paleo"
-            />
-                Paleo </label>
-
-            <label><input
-                type="checkbox"
-                name="primal"
-                value="primal"
-            />
-                Primal </label>
-
-            <label><input
-                type="checkbox"
-                name="low fodmap"
-                value="low fodmap"
-            />
-                LowFodmap </label>
-
-            <label><input
-                type="checkbox"
-                name="whole30"
-                value="whole30"
-            />
-                Whole30 </label>
-            <button>Filtrar</button>
-        </div>
     </div>)
 
 }

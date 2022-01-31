@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getRecipes, searchRecipe } from "../../Redux/actions"
 import DetailRecipe from "../detailsRecipe/detailRecipe"
 import NavBar from "../navBar/navBar"
+import FilteredRecipes from "../filteredRecipes/filteredRecipes"
 import Order from "../orderRecipes/orderRecipes"
 import PaginationRecipe from "../Paginacion/paginacion"
 import Recipe from "../recipe/recipe"
@@ -19,7 +20,7 @@ function SearchRecipe() {
         event.preventDefault()
         setSearch(event.target.value)
     }
-
+    console.log(recipes)
 
 
     return (<div>
@@ -44,6 +45,7 @@ function SearchRecipe() {
                     }
                 }}
             >Buscar</button>
+            <FilteredRecipes />
             <Order />
             <PaginationRecipe pagina={pagina} setPagina={setPagina} maximo={maximo} />
             <div >
