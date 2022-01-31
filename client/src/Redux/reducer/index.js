@@ -5,7 +5,7 @@ const initialState = {
     filteredRecipes: [],
     createRecipes: [],
     ordered: [],
-    detailsRecipe: []
+    detailsRecipe: {}
 }
 
 

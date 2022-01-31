@@ -4,6 +4,8 @@ console.log(diets)
 
 
 
-if (diets.includes({})) {
-    return detailsRecipe.diets.map((e) => e.title)
-} else detailsRecipe.diets
+if (diets[0]) {
+    return detailRecipe.diets.map((e) => e.title)
+} else detailRecipe.diets
+
+diets

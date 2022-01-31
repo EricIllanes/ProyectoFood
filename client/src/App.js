@@ -23,7 +23,7 @@ function App() {
         </Router>
       </React.Fragment>
     </div>
-  );
+  )
 }
 
 export default App;

@@ -1,0 +1,4 @@
+.botonesavanzarparatras{
+display: flex;
+flex-direction: row;
+}

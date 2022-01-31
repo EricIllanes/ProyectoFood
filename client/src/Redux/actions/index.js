@@ -75,6 +75,7 @@ export function detailRecipes(id) {
                 })
         }
 
+
     } catch (error) {
         console.log(error)
     }
