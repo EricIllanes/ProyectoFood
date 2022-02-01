@@ -32,8 +32,8 @@ router.get("/recipes", async (req, res, next) => {
             order: [["title", "ASC"]]
 
         })
-
-        let filteredRecipesAPI = recipesAPI.data.results    //data es por axios
+        obj = { key: "value" }
+        let filteredRecipesAPI = recipesAPI.data.results //data es por axio
         let allRecipes = [...filteredRecipesAPI, ...recipesDB]
 
         res.send(allRecipes)
@@ -115,7 +115,7 @@ router.get("/recipes/:id", async (req, res, next) => {
 
 router.post("/recipe", async (req, res, next) => {
     try {
-        const { title, resume, score, level, steps, image, diets } = req.body
+        const { title, resume, score, level, steps, image, dishTypes, diets } = req.body
         const diet = await Diets.findAll({
             where: {
                 // title: [vegan, vegetarian, paleo]
@@ -124,7 +124,7 @@ router.post("/recipe", async (req, res, next) => {
         })
 
         const newRecipes = await Recipes.create({
-            title, resume, score, level, steps, image
+            title, resume, score, level, steps, image, dishTypes, diets
         })
 
 

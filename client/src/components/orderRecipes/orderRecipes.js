@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux"
-import { orderRecipes } from "../../Redux/actions"
+import { orderRecipes, orderRecipesScore } from "../../Redux/actions"
 
 
 export const ASCENDENTE = "ASCENDENTE"
 export const DESCENDENTE = "DESCENDENTE"
+export const ASCENDENTSCORE = "ASCENDENTSCORE"
+export const DESCENDENTSCORE = "DESCENDENTSCORE"
 
 
 export default function Order() {
@@ -11,6 +13,11 @@ export default function Order() {
     function onSelectChange(event) {
         event.preventDefault()
         dispatch(orderRecipes(event.target.value))
+    }
+
+    function onSelectChangeScore(e) {
+        e.preventDefault()
+        dispatch(orderRecipesScore(e.target.value))
     }
 
 
@@ -21,6 +28,10 @@ export default function Order() {
             <option value={DESCENDENTE}>"Z - A"</option>
         </select>
 
+        <select name="select" onChange={(e) => onSelectChangeScore(e)}>
+            <option value={ASCENDENTSCORE}> Score: "1 - 10"</option>
+            <option value={DESCENDENTSCORE}> Score: "10 - 1"</option>
+        </select>
 
     </div>)
 }

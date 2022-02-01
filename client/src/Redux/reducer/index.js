@@ -1,7 +1,8 @@
-import { ASCENDENTE, DESCENDENTE } from "../../components/orderRecipes/orderRecipes"
-import { SEARCH_RECIPE, FILTERED_RECIPES, CREATE_RECIPE, GET_RECIPES, ORDER, DETAIL_RECIPES } from "../actions"
+import { ASCENDENTE, DESCENDENTE, ASCENDENTSCORE, DESCENDENTSCORE } from "../../components/orderRecipes/orderRecipes"
+import { SEARCH_RECIPE, FILTERED_RECIPES, CREATE_RECIPE, GET_RECIPES, ORDER, DETAIL_RECIPES, GET_DIETS, ORDERSCORE } from "../actions"
 const initialState = {
     recipes: [],
+    diets: [],
     filteredRecipes: [],
     createRecipes: [],
     ordered: [],
@@ -24,18 +25,17 @@ function rootReducer(state = initialState, action) {
             }
         case FILTERED_RECIPES:
             const allRecipes = state.recipes
-            const dietsFilter = action.payload === allRecipes ? allRecipes : allRecipes.filter(e => e.diets === action.payload)
-            console.log(1111111, action.payload)
-            console.log(22222222222, dietsFilter)
+            const recipesFilter = action.payload === allRecipes ? allRecipes : allRecipes.filter(e => e.recipes === action.payload)
+            console.log(1111111111111, action.payload)
             return {
                 ...state,
-                recipes: dietsFilter
+                recipes: recipesFilter
             }
         case CREATE_RECIPE:
             return {
                 ...state,
-                createRecipes: action.payload
             }
+
         case ORDER:
             let orderedRecipes = [...state.recipes]
 
@@ -46,16 +46,40 @@ function rootReducer(state = initialState, action) {
                 if (a.title > b.title) {
                     return action.payload === ASCENDENTE ? 1 : -1
                 }
+
                 return 0
             })
             return {
                 ...state,
                 recipes: orderedRecipes
             }
+
+        case ORDERSCORE:
+            let orderedScoreRecipes = [...state.recipes]
+
+            orderedScoreRecipes = orderedScoreRecipes.sort((a, b) => {
+                if (a.spoonacularScore < b.spoonacularScore) {
+                    return action.payload === ASCENDENTSCORE ? -1 : 1;
+                }
+                if (a.spoonacularScore > b.spoonacularScore) {
+                    return action.paylaod === ASCENDENTSCORE ? 1 : -1;
+                }
+                return 0
+            })
+            return {
+                ...state,
+                recipes: orderedScoreRecipes
+            }
+
         case DETAIL_RECIPES:
             return {
                 ...state,
                 detailsRecipe: action.payload
+            }
+        case GET_DIETS:
+            return {
+                ...state,
+                diets: action.payload
             }
         default:
             return state

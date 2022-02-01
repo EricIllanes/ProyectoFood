@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       allowNull: false,
 
     },
-    score: {
+    scorespoonacularScore: {
       type: DataTypes.INTEGER,
 
     },
@@ -39,3 +39,4 @@ module.exports = (sequelize) => {
     }
   });
 };
+
