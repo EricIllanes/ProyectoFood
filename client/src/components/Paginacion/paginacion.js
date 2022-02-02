@@ -16,7 +16,7 @@ export default function PaginationRecipe({ pagina, setPagina, maximo }) {
 
     return (<div>
         {
-            recipes.length > 0 ?
+            (maximo > 1 && recipes.length > 0) ?
                 <div className="botonesavanzarparatras">
                     <button
                         disabled={pagina === maximo || pagina > maximo}

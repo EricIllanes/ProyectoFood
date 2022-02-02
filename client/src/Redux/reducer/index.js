@@ -24,9 +24,11 @@ function rootReducer(state = initialState, action) {
                 recipes: action.payload
             }
         case FILTERED_RECIPES:
-            const allRecipes = state.recipes
-            const recipesFilter = action.payload === allRecipes ? allRecipes : allRecipes.filter(e => e.recipes === action.payload)
+            const filteredRecipes = state.recipes
+            const recipesFilter = filteredRecipes.filter(el => el.diets[1] === action.payload)
             console.log(1111111111111, action.payload)
+            console.log(22222222, filteredRecipes)
+            console.log(3333333, recipesFilter)
             return {
                 ...state,
                 recipes: recipesFilter

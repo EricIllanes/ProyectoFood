@@ -59,7 +59,7 @@ export function searchRecipe(search) {
 }
 
 export function createRecipe(payload) {
-    return async function (dispatch) {
+    return async function () {
         var info = axios.post("http://localhost:3001/api/recipes/recipe", payload)  //se hace el post del payload
         return info;
     }
@@ -83,6 +83,7 @@ export function orderRecipesScore(order) {
 }
 
 export function filteredRecipe(payload) {
+    console.log(4444444, payload)
     return {
 
         type: FILTERED_RECIPES,

@@ -57,7 +57,7 @@ export default function CreatedRecipe() {
     return (<div className="divpadre">
         <NavBar />
 
-        <h1>HOLA DESDE LA CREACIÓN DE RECETAS</h1>
+        <h1>Crea t</h1>
 
         <div>
             <form>
