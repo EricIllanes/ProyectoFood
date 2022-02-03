@@ -83,7 +83,6 @@ export function orderRecipesScore(order) {
 }
 
 export function filteredRecipe(payload) {
-    console.log(4444444, payload)
     return {
 
         type: FILTERED_RECIPES,

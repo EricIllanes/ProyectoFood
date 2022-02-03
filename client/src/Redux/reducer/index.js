@@ -19,16 +19,25 @@ function rootReducer(state = initialState, action) {
             }
 
         case SEARCH_RECIPE:
+
             return {
                 ...state,
-                recipes: action.payload
+                recipes: action.payload,
+                filteredRecipes: action.payload
             }
+
         case FILTERED_RECIPES:
-            const filteredRecipes = state.recipes
-            const recipesFilter = filteredRecipes.filter(el => el.diets[1] === action.payload)
-            console.log(1111111111111, action.payload)
-            console.log(22222222, filteredRecipes)
-            console.log(3333333, recipesFilter)
+            const filtered = state.filteredRecipes
+            const recipesFilter = action.payload === "all" ? filtered : filtered.filter(el => {
+                if (typeof el.diets[0] === "string") {
+                    return el.diets.includes(action.payload)
+                } else {
+                    return el.diets.find(e => e.title == action.payload)
+                } return false
+            })
+            console.log(action.payload)
+            console.log(recipesFilter)
+
             return {
                 ...state,
                 recipes: recipesFilter
