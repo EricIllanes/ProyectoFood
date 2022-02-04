@@ -1,0 +1,20 @@
+.detailcard{
+    border-radius: 10px;
+    border: 2px solid rgb(18, 18, 19);
+    background-color: rgb(228, 60, 150);
+    display:flex;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    align-items: center;
+    text-align: center;
+    flex-direction:column;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.backgroud {
+
+    background-image: url("https://images.pexels.com/photos/4226876/pexels-photo-4226876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+background-size: cover;
+min-height: 100vh;
+}

@@ -1,4 +1,17 @@
 .divpadre{
-    align-self: center;
+    align-self: flex-end;
     flex-direction: column;
+    display: flex;
+    background-position: left;
+    align-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+.divcreacion {
+    display: flex;
+    background-position: left;
+    align-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
 }

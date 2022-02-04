@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { detailRecipes } from "../../Redux/actions"
+import "./plato.png"
 
 export default function Recipe({ id, title, image, diets, dishTypes, score }) {
     const dispatch = useDispatch()
@@ -11,16 +12,11 @@ export default function Recipe({ id, title, image, diets, dishTypes, score }) {
             >
                 <h3>{title}</h3>
             </Link>
-            <img src={image ? image :
-                "https://image.freepik.com/vector-gratis/plato-vacio-tenedor-cuchara-vector_53876-61874.jpg"} alt="" />
-            <h3>Dietas : {diets}</h3>
-            <h3>Tipo de plato: {dishTypes}</h3>
-            <h3>Score: {score}</h3>
+            <img src={image ? image : "https://cdn-icons.flaticon.com/png/512/4262/premium/4262736.png?token=exp=1643954045~hmac=b4a8c66fb4204a458f015b760c9c931e"} />
 
-
-
-
-
+            <h3>Dietas : {diets ? diets : "Sin dietas asociadas"}</h3>
+            <h3>Tipo de plato: {(dishTypes) ? (dishTypes) : "Sin tipo de plato asociado"}</h3>
+            <h3>Score: {(score) ? (score) : "Sin score asociado"}</h3>
         </div>
     )
 }

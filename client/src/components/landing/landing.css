@@ -6,19 +6,32 @@ justify-content: center;
 align-self: center;
 background-repeat: no-repeat;
 background-position: center center;
-background-size: cover;
+background-size:cover;
 min-height: 100vh;
 min-width: 100vh;
 }
 .titulolanding{
     font-size: 100px;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Dancing Script', cursive;
 }
-.botonlanding{
- background-color: gray;
+.titulolanding:hover{
+color: #8C2B45;
+transition: 400ms;
 
 }
+.botonlanding{
+ background-color: rgba(128, 128, 128, 0);
+ font-family: 'Pacifico', cursive;
+ color: #a54d63;
+ border-color: #864253;
+ border: 0px;
+border-radius: 5px;
+
+font-size: 30px;
+}
 .botonlanding:hover{
-  
+    background-color: rgb(73, 25, 41);
     transition: 400ms;
     opacity: 80%;
 }

@@ -46,7 +46,7 @@ export default function SearchRecipe() {
             <FilteredRecipes />
             <Order />
             <PaginationRecipe pagina={pagina} setPagina={setPagina} maximo={maximo} />
-            <div >
+            <div className="background">
                 {recipes
                     .slice((pagina - 1) * porPagina,
                         (pagina - 1) * porPagina + porPagina)
@@ -66,6 +66,7 @@ export default function SearchRecipe() {
                     }
                     )}
             </div>
+            <PaginationRecipe pagina={pagina} setPagina={setPagina} maximo={maximo} />
         </div >
     </div>)
 }

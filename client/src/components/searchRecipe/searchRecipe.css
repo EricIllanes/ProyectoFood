@@ -1,5 +1,10 @@
 
+.background {
+background-image: url("https://images.pexels.com/photos/4226876/pexels-photo-4226876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+background-size: cover;
+min-height: 100vh;
 
+}
 
 
 .cards {
@@ -15,5 +20,6 @@
     flex-direction:column;
     justify-content: center;
     margin: 20px auto;
-    height: auto;        /* margin de 20px por arriba y por abajo y otorga el mismo en ambos lados*/
+    height: auto;       
+    min-width: min-content; /* margin de 20px por arriba y por abajo y otorga el mismo en ambos lados*/
 }

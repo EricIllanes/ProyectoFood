@@ -5,6 +5,7 @@ import LandingPage from "./components/landing/landingPage";
 import SearchRecipe from './components/searchRecipe/searchRecipe';
 import CreatedRecipe from './components/createRecipe/createRecipe';
 import DetailRecipe from './components/detailsRecipe/detailRecipe';
+import MiPrimera from './components/miPrimera/miPrimera';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
             <Route path="/home" element={<SearchRecipe />} />
             <Route path="/createrecipe" element={<CreatedRecipe />} />
             <Route path="/:id" element={<DetailRecipe />} />
-          </Routes>
+            <Route path="/miprimera" element={<MiPrimera />} />          </Routes>
         </Router>
       </React.Fragment>
     </div>
